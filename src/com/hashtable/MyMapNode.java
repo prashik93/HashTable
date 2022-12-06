@@ -2,7 +2,6 @@ package com.hashtable;
 
 public class MyMapNode<K, V> implements INode<K>{
     K key;
-
     V value;
     MyMapNode<K, V> next;
 
@@ -41,8 +40,12 @@ public class MyMapNode<K, V> implements INode<K>{
 
     @Override
     public String toString() {
-        return "com.hashtable.MyNode{" +
-                key +
-                '}';
+        StringBuilder myMapNodeString = new StringBuilder();
+        myMapNodeString.append("MyMapNode{" + "K=").append(key)
+                .append(" V=").append(value).append("}");
+        if(next != null) {
+            myMapNodeString.append(" -> ").append(next);
+        }
+        return myMapNodeString.toString();
     }
 }
