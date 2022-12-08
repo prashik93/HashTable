@@ -31,7 +31,6 @@ public class MyLinkedHashMap<K, V> {
         else return myMapNode.getValue();
     }
 
-
     public void add(K key, V value) {
         int index = this.getBucketIndex(key);
         MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
@@ -46,6 +45,13 @@ public class MyLinkedHashMap<K, V> {
         } else {
             myMapNode.setValue(value);
         }
+    }
+
+    public void remove(K key) {
+        int index = this.getBucketIndex(key);
+        MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
+        MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) myLinkedList.search(key);
+        myLinkedList.removeFromSpecificPosition(myMapNode);
     }
 
     @Override

@@ -13,6 +13,15 @@ public class MyHashMap<K, V> {
         else return myMapNode.getValue();
     }
 
+    public int size() {
+        int size = myLinkedList.size();
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return myLinkedList.isEmpty();
+    }
+
     public void add(K key, V value) {
         MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) this.myLinkedList.search(key);
         if(myMapNode == null) {
